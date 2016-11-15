@@ -12,11 +12,12 @@
     <select id = "findUserById" resultMap = "result">
         SELECT * FROM t_users where id = #{id};
     </select>
-    <!--<select id = "save" resultMap = "void">-->
-        <!--INSERT INTO t_user(f_name, f_age, f_email)-->
-    <!--values  (   #{name}-->
-                <!--#{age},-->
-                <!--#{email},-->
-    <!--)-->
-    <!--</select>-->
 </mapper>
+
+        <!--<select id = "save" resultMap = "void">-->
+        <!--INSERT INTO t_user(f_name, f_age, f_email)-->
+        <!--values  (   #{name}-->
+        <!--#{age},-->
+        <!--#{email},-->
+        <!--)-->
+        <!--</select>-->
