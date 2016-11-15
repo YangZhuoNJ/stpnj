@@ -4,17 +4,13 @@ import com.nj.tampa.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
-
-
 /**
- * Created by admin on 2016/11/14.
+ * Created by admin on 2016/11/15.
  */
 
 @Mapper
 @Component
-public interface UserMapper {
+public interface FaulMapper {
 
-    User findUserById(Integer id);
-
-//    void save(String name, Integer age, String email);
+    User get(int id);
 }
