@@ -13,4 +13,11 @@
         FROM t_user
         where id = #{id}
     </select>
+    <insert id="save" parameterType="com.nj.tampa.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user(f_name, f_age, f_email)
+        values (#{name}, #{age}, #{email})
+    </insert>
+    <delete id="delete">
+        delete from t_user where id = #{id}
+    </delete>
 </mapper>

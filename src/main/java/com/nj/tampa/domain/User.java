@@ -4,10 +4,23 @@ package com.nj.tampa.domain;
  * Created by admin on 2016/11/14.
  */
 public class User {
-    private Integer id;
+    private String id;
     private String name;
     private Integer age;
     private String email;
+
+    public User(String id, String name, Integer age, String email) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    public User(String name, Integer age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
 
     @Override
     public String toString() {
@@ -19,11 +32,11 @@ public class User {
                 '}';
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

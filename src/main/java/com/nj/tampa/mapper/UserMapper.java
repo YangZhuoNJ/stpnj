@@ -12,5 +12,7 @@ public interface UserMapper {
 
     User findUserById(Integer id);
 
-//    void save(String name, Integer age, String email);
+    void save(User user);
+
+    void delete(String id);
 }
