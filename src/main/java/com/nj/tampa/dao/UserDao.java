@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * Created by admin on 2016/11/14.
  */
 
-//@Component
+@Component
 public class UserDao {
 
     @Autowired

@@ -1,10 +1,13 @@
 package com.nj.tampa.config;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
@@ -27,11 +30,13 @@ public class Config {
 
 
     @Bean
-    public SqlSessionFactoryBean SqlSessionFactoryBean(DataSource dataSource) {
+    public SqlSessionFactory SqlSessionFactoryBean(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setMapperLocations(null);
-        return sqlSessionFactoryBean;
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+//        sqlSessionFactoryBean.setMapperLocations(new Resource[]{resolver.getResource("classpath:**/*Mapper.xml")});
+        sqlSessionFactoryBean.setMapperLocations(new Resource[] {resolver.getResource("classpath:userMapper.xml")});
+        return sqlSessionFactoryBean.getObject();
     }
 
     @Bean
