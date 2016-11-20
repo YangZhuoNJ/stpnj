@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.nj.tampa.mapper.UserMapper">
+    <parameterMap id="user" type="com.nj.tampa.domain.User">
+        <!--<parameter property="id" javaType="String"/>-->
+        <!--<parameter property="name" javaType="String"/>-->
+        <!--<parameter property="age" javaType="Integer"/>-->
+        <!--<parameter property="email" javaType="String"/>-->
+    </parameterMap>
+
+    <parameterMap type="com.nj.tampa.domain.User" id="user">
+        <parameter property="bookName" resultMap="BookResultMap" />
+        <parameter property="bookPrice" resultMap="BookResultMap" />
+    </parameterMap>
+
+
     <resultMap id = "result" type = "com.nj.tampa.domain.User">
         <result property = "id" column = "id"/>
         <result property = "name" column = "f_name"/>
@@ -13,11 +26,17 @@
         FROM t_user
         where id = #{id}
     </select>
-    <insert id="save" parameterType="com.nj.tampa.domain.User" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user(f_name, f_age, f_email)
-        values (#{name}, #{age}, #{email})
+
+    <select id = "findUserByName" parameterType="String" resultMap = "result">
+        SELECT *
+        FROM t_user
+        where f_name = #{name}
+    </select>
+
+    <insert id="save" parameterMap="user" useGeneratedKeys="true" keyProperty="id">
+       insert into t_user (f_name, f_age, f_email) values (#{name}, #{age}, #{email})
     </insert>
     <delete id="delete">
-        delete from t_user where id = #{id}
+        delete from t_user where id = #{id}|
     </delete>
 </mapper>

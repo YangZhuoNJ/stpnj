@@ -26,15 +26,17 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping("/name")
+    public User findByName() throws Exception{
+        return userDao.findByName("sdf");
+    }
 
 
-//    @RequestMapping("/sv")
-//    public void save() {
-//        try {
-//            userDao.save();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return;
-//    }
+
+    @RequestMapping("/sv")
+    public void save() throws Exception {
+        User user = new User( "454","Yangzhuo", 23, "yamakedidfks@hit.com");
+        userDao.save(user);
+
+    }
 }
