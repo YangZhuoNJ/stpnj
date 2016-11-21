@@ -25,7 +25,7 @@ public class UserDao {
 
 
     public void save(User user) throws Exception {
-        userMapper.save(user.getId(), user.getName(), user.getAge(), user.getEmail());
+        userMapper.save(user.getName(), user.getAge(), user.getEmail());
     }
 
     public void delete(String id) throws Exception {

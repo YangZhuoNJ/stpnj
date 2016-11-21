@@ -15,7 +15,7 @@ public interface UserMapper {
 
     User findUserByName(String name);
 
-    void save(@Param("id") String id, @Param("name") String name, @Param("age") Integer age, @Param("email") String email);
+    void save(@Param("name") String name, @Param("age") Integer age, @Param("email") String email);
 
     void delete(String id);
 }
