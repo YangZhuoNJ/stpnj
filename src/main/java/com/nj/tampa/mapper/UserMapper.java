@@ -2,6 +2,7 @@ package com.nj.tampa.mapper;
 
 import com.nj.tampa.domain.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -14,7 +15,7 @@ public interface UserMapper {
 
     User findUserByName(String name);
 
-    void save(User user);
+    void save(@Param("id") String id, @Param("name") String name, @Param("age") Integer age, @Param("email") String email);
 
     void delete(String id);
 }
